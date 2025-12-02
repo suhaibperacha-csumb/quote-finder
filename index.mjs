@@ -1,27 +1,15 @@
 import express from "express";
 import mysql from "mysql2/promise";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-// OLD LOCAL POOL (kept for backup)
-// const conn = mysql.createPool({
-//   host: "ctgplw90pifdso61.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-//   user: "uc1emkyf9g6a9r2y",
-//   password: "xvpgg9cfrs4p3qaw",
-//   database: "agwvcq48m0p3dd4f"
-// });
-
-// NEW RENDER ENV POOL
 const conn = mysql.createPool({
-  host: process.env.HOST,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE
+  host: "ctgplw90pifdso61.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  user: "uc1emkyf9g6a9r2y",
+  password: "xvpgg9cfrs4p3qaw",
+  database: "agwvcq48m0p3dd4f"
 });
 
 // DB TEST
