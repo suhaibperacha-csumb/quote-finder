@@ -1,40 +1,44 @@
 <%- include("partials/header") %>
 
-<h1 class="mb-4">Quote Finder</h1>
+<div class="container text-center" style="max-width: 600px;">
 
-<h3>Search by Keyword</h3>
-<form action="/searchByKeyword" class="mb-4">
-  <input type="text" name="keyword" class="form-control w-50 d-inline">
-  <button class="btn btn-primary">Search</button>
-</form>
+  <h1 class="mb-4">Quote Finder</h1>
 
-<h3>Search by Author</h3>
-<form action="/searchByAuthor" class="mb-4">
-  <select name="authorId" class="form-select w-50 d-inline">
-    <% authors.forEach(a => { %>
-      <option value="<%= a.authorId %>">
-        <%= a.firstName %> <%= a.lastName %>
-      </option>
-    <% }) %>
-  </select>
-  <button class="btn btn-primary">Search</button>
-</form>
+  <h3>Search by Keyword</h3>
+  <form action="/searchByKeyword" class="mb-4">
+    <input type="text" name="keyword" class="form-control mb-2">
+    <button class="btn btn-primary w-100">Search</button>
+  </form>
 
-<h3>Search by Category</h3>
-<form action="/searchByCategory" class="mb-4">
-  <select name="category" class="form-select w-50 d-inline">
-    <% categories.forEach(c => { %>
-      <option><%= c.category %></option>
-    <% }) %>
-  </select>
-  <button class="btn btn-primary">Search</button>
-</form>
+  <h3>Search by Author</h3>
+  <form action="/searchByAuthor" class="mb-4">
+    <select name="authorId" class="form-select mb-2">
+      <% authors.forEach(a => { %>
+        <option value="<%= a.authorId %>">
+          <%= a.firstName %> <%= a.lastName %>
+        </option>
+      <% }) %>
+    </select>
+    <button class="btn btn-primary w-100">Search</button>
+  </form>
 
-<h3>Search by Likes</h3>
-<form action="/searchByLikes">
-  <input type="number" name="min" placeholder="Min likes" class="form-control w-25 d-inline">
-  <input type="number" name="max" placeholder="Max likes" class="form-control w-25 d-inline">
-  <button class="btn btn-primary">Search</button>
-</form>
+  <h3>Search by Category</h3>
+  <form action="/searchByCategory" class="mb-4">
+    <select name="category" class="form-select mb-2">
+      <% categories.forEach(c => { %>
+        <option><%= c.category %></option>
+      <% }) %>
+    </select>
+    <button class="btn btn-primary w-100">Search</button>
+  </form>
+
+  <h3>Search by Likes</h3>
+  <form action="/searchByLikes">
+    <input type="number" name="min" placeholder="Min likes" class="form-control mb-2">
+    <input type="number" name="max" placeholder="Max likes" class="form-control mb-2">
+    <button class="btn btn-primary w-100">Search</button>
+  </form>
+
+</div>
 
 <%- include("partials/footer") %>
