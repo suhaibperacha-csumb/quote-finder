@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+
+<div class="container" style="max-width:600px;">
+  <h2>Add Quote</h2>
+
+  <form action="/admin/addQuote" method="POST">
+
+    <textarea class="form-control mb-2" name="quote" placeholder="Quote text"></textarea>
+
+    <select class="form-select mb-2" name="authorId">
+      <option disabled selected>Select author</option>
+      <% authors.forEach(a => { %>
+        <option value="<%= a.authorId %>"><%= a.firstName %> <%= a.lastName %></option>
+      <% }) %>
+    </select>
+
+    <select class="form-select mb-2" name="category">
+      <option disabled selected>Select category</option>
+      <% categories.forEach(c => { %>
+        <option><%= c.category %></option>
+      <% }) %>
+    </select>
+
+    <input class="form-control mb-2" type="number" name="likes" placeholder="Likes">
+
+    <button class="btn btn-success w-100">Add Quote</button>
+  </form>
+
+  <a href="/admin" class="btn btn-secondary w-100 mt-3">Back</a>
+</div>
+
+<%- include("partials/footer") %>

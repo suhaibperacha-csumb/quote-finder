@@ -1,0 +1,43 @@
+<%- include("partials/header") %>
+
+<div class="container" style="max-width: 700px;">
+
+  <h1 class="text-center mb-4">Admin Panel</h1>
+
+  <a href="/" class="btn btn-secondary mb-4">Back to Search</a>
+
+  <!-- AUTHORS SECTION -->
+  <h2>Authors</h2>
+  <a href="/admin/addAuthor" class="btn btn-success mb-3">Add Author</a>
+
+  <% authors.forEach(a => { %>
+    <div class="border p-3 mb-2">
+      <strong><%= a.firstName %> <%= a.lastName %></strong>
+
+      <div class="mt-2">
+        <a href="/admin/editAuthor/<%= a.authorId %>" class="btn btn-warning btn-sm">Edit</a>
+        <a href="/admin/deleteAuthor/<%= a.authorId %>" class="btn btn-danger btn-sm">Delete</a>
+      </div>
+    </div>
+  <% }) %>
+
+  <hr>
+
+  <!-- QUOTES SECTION -->
+  <h2>Quotes</h2>
+  <a href="/admin/addQuote" class="btn btn-success mb-3">Add Quote</a>
+
+  <% quotes.forEach(q => { %>
+    <div class="border p-3 mb-2">
+      "<%= q.quote %>"
+
+      <div class="mt-2">
+        <a href="/admin/editQuote/<%= q.quoteId %>" class="btn btn-warning btn-sm">Edit</a>
+        <a href="/admin/deleteQuote/<%= q.quoteId %>" class="btn btn-danger btn-sm">Delete</a>
+      </div>
+    </div>
+  <% }) %>
+
+</div>
+
+<%- include("partials/footer") %>

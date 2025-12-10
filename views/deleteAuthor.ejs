@@ -1,0 +1,15 @@
+<%- include("partials/header") %>
+
+<div class="container" style="max-width: 600px;">
+  <h2>Delete Author</h2>
+
+  <p>Are you sure you want to delete <strong><%= author.firstName %> <%= author.lastName %></strong>?</p>
+
+  <form method="POST" action="/admin/deleteAuthor/<%= author.authorId %>">
+    <button class="btn btn-danger w-100">Confirm Delete</button>
+  </form>
+
+  <a href="/admin" class="btn btn-secondary w-100 mt-3">Cancel</a>
+</div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+
+<div class="container" style="max-width:600px;">
+  <h2>Edit Author</h2>
+
+  <form action="/admin/editAuthor/<%= author.authorId %>" method="POST">
+
+    <input class="form-control mb-2" name="firstName" value="<%= author.firstName %>" placeholder="First Name">
+    <input class="form-control mb-2" name="lastName" value="<%= author.lastName %>" placeholder="Last Name">
+    <input class="form-control mb-2" name="dob" value="<%= author.dob %>" placeholder="Date of Birth">
+    <input class="form-control mb-2" name="dod" value="<%= author.dod %>" placeholder="Date of Death">
+    <input class="form-control mb-2" name="profession" value="<%= author.profession %>" placeholder="Profession">
+    <input class="form-control mb-2" name="country" value="<%= author.country %>" placeholder="Country">
+    
+    <textarea class="form-control mb-2" name="bio" placeholder="Biography"><%= author.bio %></textarea>
+    
+    <input class="form-control mb-2" name="picture" value="<%= author.picture %>" placeholder="Picture URL">
+
+    <button class="btn btn-warning w-100">Save Changes</button>
+  </form>
+
+  <a href="/admin" class="btn btn-secondary w-100 mt-3">Back</a>
+</div>
+
+<%- include("partials/footer") %>

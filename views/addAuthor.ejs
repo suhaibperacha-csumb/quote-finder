@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+
+<div class="container" style="max-width:600px;">
+  <h2>Add Author</h2>
+
+  <form action="/admin/addAuthor" method="POST">
+
+    <input class="form-control mb-2" name="firstName" placeholder="First Name">
+    <input class="form-control mb-2" name="lastName" placeholder="Last Name">
+    <input class="form-control mb-2" name="dob" placeholder="Date of Birth">
+    <input class="form-control mb-2" name="dod" placeholder="Date of Death">
+    <input class="form-control mb-2" name="profession" placeholder="Profession">
+    <input class="form-control mb-2" name="country" placeholder="Country">
+    <textarea class="form-control mb-2" name="bio" placeholder="Biography"></textarea>
+    <input class="form-control mb-2" name="picture" placeholder="Picture URL">
+
+    <button class="btn btn-success w-100">Add Author</button>
+  </form>
+
+  <a href="/admin" class="btn btn-secondary w-100 mt-3">Back</a>
+</div>
+
+<%- include("partials/footer") %>

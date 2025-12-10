@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+
+<div class="container" style="max-width:600px;">
+  <h2>Edit Quote</h2>
+
+  <form action="/editQuote/<%= quote.quoteId %>" method="POST">
+
+    <textarea class="form-control mb-2" name="quote"><%= quote.quote %></textarea>
+
+    <select class="form-select mb-2" name="authorId">
+      <% authors.forEach(a => { %>
+        <option value="<%= a.authorId %>" 
+          <%= a.authorId === quote.authorId ? "selected" : "" %>>
+          <%= a.firstName %> <%= a.lastName %>
+        </option>
+      <% }) %>
+    </select>
+
+    <select class="form-select mb-2" name="category">
+      <% categories.forEach(c => { %>
+        <option <%= c.category === quote.category ? "selected" : "" %>>
+          <%= c.category %>
+        </option>
+      <% }) %>
+    </select>
+
+    <input class="form-control mb-2" name="likes" value="<%= quote.likes %>">
+
+    <button class="btn btn-warning w-100">Save Changes</button>
+  </form>
+
+  <a href="/admin" class="btn btn-secondary w-100 mt-3">Back</a>
+</div>
+
+<%- include("partials/footer") %>
